@@ -58,7 +58,6 @@ main(int argc, char **argv)
             { "Damerau", "Damreau", 2, 1, 1, 3 },
             { "waht", "whit", 2, 2, 2, 1 },
             { "what", "wtah", 2, 2, 2, 1 },
-            /* From http://scarcitycomputing.blogspot.com/2013/04/damerau-levenshtein-edit-distance.html */
             { "a cat", "an act", 3, 2, 2, 1 },
             { "a cat", "a abct", 3, 3, 2, 2 },
 	    /* LCS */

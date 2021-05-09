@@ -11,9 +11,6 @@
 ** for more information, see
 **   https://en.wikipedia.org/wiki/Wagner-Fischer_algorithm
 **
-** See also
-**   http://scarcitycomputing.blogspot.com/2013/04/damerau-levenshtein-edit-distance.html
-** for a detailed example of the three algorithms.
 */
 
 #include <string.h>
