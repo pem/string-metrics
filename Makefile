@@ -1,5 +1,5 @@
 #
-# Per-Erik Martin (pem@pem.nu) 2018-07-07
+# pem 2018-07-07
 #
 
 CC=gcc --std=c99
