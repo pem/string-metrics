@@ -1,0 +1,9 @@
+de1337.o
+edist
+edist.o
+edit-distance.o
+lcsubstr.o
+libsm.a
+make.deps
+smtest
+smtest.o
