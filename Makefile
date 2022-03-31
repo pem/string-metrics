@@ -6,7 +6,7 @@ CC=gcc --std=c99
 
 CCOPTS=-pedantic -Wall -Werror
 
-CCDEFS=#-D__EXTENSIONS__
+CCDEFS=-D_POSIX_C_SOURCE=2
 
 #CFLAGS=-g $(CCOPTS) $(CCDEFS) #-DDEBUG
 CFLAGS=-O $(CCOPTS) $(CCDEFS)
