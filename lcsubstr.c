@@ -1,12 +1,23 @@
 /*
-** pem 2018-07-07
+** pem 2018-07-07, revised 2023-05-07
 **
 ** Longest common substring algorithm.
 **
 ** See: https://en.wikipedia.org/wiki/Longest_common_substring_problem
 */
 
+#include "string-metrics.h"
+
+#ifdef SM_WCHAR
+#define SM_FUN(N) N ## _wchar
+#define SM_CHAR_T wchar_t
+#define SM_STRLEN wcslen
+#else
 #include <string.h>
+#define SM_FUN(N) N
+#define SM_CHAR_T char
+#define SM_STRLEN strlen
+#endif
 
 #ifdef DEBUG
 #include <stdio.h>
@@ -39,11 +50,13 @@ print_int_matrix(const int *m, int rowmax, int colmax)
 ** substrings are.)
 */
 int
-sm_lcs_length(const char *s1, const char *s2, int *tmpbuf)
+SM_FUN(sm_lcs_length)(const SM_CHAR_T *s1,
+                      const SM_CHAR_T *s2,
+                      int *tmpbuf)
 {
     int z = 0;
-    int m = strlen(s1);
-    int n = strlen(s2);
+    int m = SM_STRLEN(s1);
+    int n = SM_STRLEN(s2);
 
     for (int i = 0 ; i < m ; i++)
     {
