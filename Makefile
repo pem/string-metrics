@@ -16,7 +16,7 @@ PROG2=smtest-wchar
 
 LIB=libsm.a
 
-LSRC=edit-distance.c lcsubstr.c de1337.c
+LSRC=edit-distance.c lcsubstr.c
 PSRC=smtest.c edist.c
 
 LOBJ=$(LSRC:%.c=%.o) $(LSRC:%.c=%-wchar.o)
@@ -38,12 +38,10 @@ $(LIB):	$(LOBJ)
 
 edit-distance.o: edit-distance.c string-metrics.h
 lcsubstr.o: lcsubstr.c string-metrics.h
-de1337.o: de1337.c string-metrics.h
 smtest.o: smtest.c string-metrics.h sm-utf8.h
 
 edit-distance-wchar.o: edit-distance.c string-metrics.h
 lcsubstr-wchar.o: lcsubstr.c string-metrics.h
-de1337-wchar.o: de1337.c string-metrics.h
 smtest-wchar.o: smtest.c string-metrics.h sm-utf8.h
 sm-utf8.o: sm-utf8.c sm-utf8.h
 

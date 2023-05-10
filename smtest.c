@@ -17,9 +17,6 @@
 #define SM_FUN(N) N
 #endif
 
-#define DE1337_STRING_IN  "!abc0123456789xyz~"
-#define DE1337_STRING_OUT "!abcoizeasgt8gxyz~"
-
 typedef struct testcase_s
 {
     char *s1, *s2;
@@ -173,53 +170,6 @@ main(int argc, char **argv)
     }
 
     putchar('\n');
-
-#ifdef SM_WCHAR
-    wchar_t s1[32], s2[32];
-    memset(s1, 0, sizeof(s1));
-    utf8towstr(DE1337_STRING_IN, s1);
-    utf8towstr(DE1337_STRING_OUT, s2);
-#define SM_STRCMP wcscmp
-#else
-    char s1[32], s2[32];
-    memset(s1, 0, sizeof(s1));
-    strcpy(s1, DE1337_STRING_IN);
-    strcpy(s2, DE1337_STRING_OUT);
-#define SM_STRCMP strcmp
-#endif
-    /* Modify s1, compare to s2 */
-    SM_FUN(sm_simple_de1337_1)(s1);
-    if (SM_STRCMP(s1, s2) == 0)
-        printf("sm_simple_de1337_1 ok\n");
-    else
-    {
-        printf("sm_simple_de1337_1 failed\n");
-        fail = 1;
-    }
-#ifdef SM_WCHAR
-    memset(s1, 0, sizeof(s1));
-    utf8towstr(DE1337_STRING_IN, s1);
-#define SM_CHAR_T wchar_t
-#else
-    memset(s1, 0, sizeof(s1));
-    strcpy(s1, DE1337_STRING_IN);
-#define SM_CHAR_T char
-#endif
-    /* Put output in s2 */
-    SM_FUN(sm_simple_de1337_2)(s1, s2, sizeof(s2)/sizeof(SM_CHAR_T));
-    /* Put the expected result in s1 */
-#ifdef SM_WCHAR
-    utf8towstr(DE1337_STRING_OUT, s1);
-#else
-    strcpy(s1, DE1337_STRING_OUT);
-#endif
-    if (SM_STRCMP(s1, s2) == 0)
-        printf("sm_simple_de1337_2 ok\n");
-    else
-    {
-        printf("sm_simple_de1337_2 failed\n");
-        fail = 1;
-    }
 
 #ifndef SM_WCHAR
     fail = realfail;

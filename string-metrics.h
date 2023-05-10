@@ -29,8 +29,3 @@ int sm_dl_distance_wchar(const wchar_t *s1, const wchar_t *s2, int *tmpbuf);
 int sm_lcs_length(const char *s1, const char *s2, int *tmpbuf);
 int sm_lcs_length_wchar(const wchar_t *s1, const wchar_t *s2, int *tmpbuf);
 
-void sm_simple_de1337_1(char *s);
-void sm_simple_de1337_1_wchar(wchar_t *s);
-
-int sm_simple_de1337_2(const char *s1, char *s2, int s2max);
-int sm_simple_de1337_2_wchar(const wchar_t *s1, wchar_t *s2, int s2max);
